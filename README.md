@@ -1,12 +1,35 @@
-# React + Vite
+# 🪙 Coin Client App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React + Vite web application that allows users to input a **target amount** and a list of **coin denominations** to compute the **minimum number of coins needed**.
 
-Currently, two official plugins are available:
+> 🔗 This app interfaces with a separate **backend REST API**, built using Dropwizard (available in another repository).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Tech Stack
 
-## Expanding the ESLint configuration
+- Frontend: React + Vite
+- Backend: REST API Webservice in Dropwizard Application 
+- Containerization: Docker
+- Deployment (Partial): Google Cloud Run
+  
+## 🧩 Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Ensure the backend API is running:
+  - You can **run it locally** from the Dropwizard backend repo running in localhost:8080, **or**
+  - Use the **deployed public API endpoint** (provided in the submission.json file) 
+
+
+
+## 🛠️ Running the App Locally (Development Mode)
+
+- npm install
+- npm run dev
+
+### How to build the docker image?
+- docker build -t coin-client-app .
+- docker run -p 5173:5173 coin-client-app
+> make sure the backend is running if not, the submit button will not result anything
+
+## To easily run the docker image created already in docker hub : 
+- docker pull haffydockerid/coin-client-app:latest
+- docker run -p 5173:5173 haffydockerid/coin-client-app
+
