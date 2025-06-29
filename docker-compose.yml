@@ -1,0 +1,16 @@
+# version: '3.7' # specify docker-compose version
+
+# # Define the services/containers to be run
+# services:
+#   react: # name of the first service
+#     hostname: localhost
+#     build: ./ # specify the directory of the Dockerfile
+#     image: haffydockerid/coin-client-app
+#     ports:
+#       - "5173:5173" # specify port forewarding
+
+#   dropwizard: #name of the second service
+#     build: CoinChangeApp # specify the directory of the Dockerfile
+#     image: haffydockerid/coin-change-app
+#     ports:
+#       - "8080:8080" #specify ports forewarding
