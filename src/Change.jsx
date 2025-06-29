@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 
-//const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8080";
-
 function NewRequestBar({
   amount,
   coins,
@@ -57,12 +55,15 @@ function Change() {
   }
 
   async function submitNewMessage() {
-    const baseUrl = import.meta.env.VITE_API_URL;
+    const baseUrl =
+      import.meta.env.VITE_API_URL || "http://localhost:8080/coins/getChange";
 
     const response = await fetch(
       // `http://127.0.0.1:8080/coins/getChange?targetAmount=${targetAmtTxt}&coins=${coinsTxt}`, //works for queryparam
       // `http://localhost:8080/coins/getChange`,
-      `${baseUrl}/coins/getChange`,
+      //  `https://coin-change-app-1085921710293.europe-west1.run.app/coins/getChange`,
+      // `http://localhost:8080/coins/getChange`,
+      `${baseUrl}`,
 
       {
         method: "POST",
@@ -76,6 +77,12 @@ function Change() {
         }),
       }
     );
+
+    if (!response.ok) {
+      //const errorText = await response.text();
+      setOutput(0);
+      return;
+    }
 
     const json = await response.json();
     console.log(json);

@@ -1,4 +1,4 @@
-# version: '3.7' # specify docker-compose version
+# version: '3.7' # specify docker-compose version //doesnt work cuz of port issue, instead just create 2 images and run
 
 # # Define the services/containers to be run
 # services:
